@@ -1,7 +1,13 @@
 def input_int(message):
-    result = int(input(message))
-
-    return result
+    while True:
+        try:
+            result = int(input(message))
+        except ValueError:
+            print('Некорректное значение! \nПопробуйте ещё раз.')
+        except Exception as error:
+            print(f'Что-то пошло не так: {type(error)} {error}')
+        else:
+            return result
 
 
 a = input_int('Введите первое число:')
